@@ -17,8 +17,8 @@ pipelines:
             build:
               tasks:
                 - exec:
-                  command: bash
-                  arguments:
-                    - echo "Building Maven"
+                    command: bash
+                    arguments:
+                      - echo "Building Maven"
 
 
