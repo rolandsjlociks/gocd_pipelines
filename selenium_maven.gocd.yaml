@@ -46,7 +46,13 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
+                      - docker system prune
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
                       - docker compose up
+
       - deploy-prod:
           environment_variables:
             ENV_NAME: prod
