@@ -46,6 +46,11 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
+                      - docker ps
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
                       - docker system prune
                 - exec:
                     command: bash
