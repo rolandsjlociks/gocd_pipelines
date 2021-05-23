@@ -29,7 +29,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - docker system prune
+                      - docker system prune -f -a
                 - exec:
                     command: bash
                     arguments:
