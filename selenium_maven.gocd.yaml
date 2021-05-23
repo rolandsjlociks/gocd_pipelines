@@ -51,6 +51,10 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
+                      - docker compose down
+                    command: bash
+                    arguments:
+                      - -c
                       - docker rm chrome firefox mvn selenium-hub
 
       - deploy-prod:
