@@ -4,7 +4,7 @@ pipelines:
   selenium_tests:
     group: cicd_task_group
     lock_behaviour: unlockWhenFinished
-    label_template: "$(git_selenium_tests)"
+    label_template: "${git_selenium_tests}"
     materials:
       git_selenium_tests:
         git: https://github.com/rolandsjlociks/cicd_task.git
