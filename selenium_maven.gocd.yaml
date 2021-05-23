@@ -44,8 +44,7 @@ pipelines:
                       - echo "Testing on ${ENV_NAME}"
                 - exec:
                     command: docker
-                      - compose
-                      - up
+                      - compose up
       - deploy-prod:
           environment_variables:
             ENV_NAME: prod
