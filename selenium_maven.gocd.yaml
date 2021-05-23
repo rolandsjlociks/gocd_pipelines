@@ -31,6 +31,11 @@ pipelines:
                     arguments:
                       - -c
                       - echo "Deploying on ${ENV_NAME}"
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - bash send_notification.sh "${ENV_NAME} deployment” 0
       - test-staging:
           environment_variables:
             ENV_NAME: staging
@@ -52,10 +57,17 @@ pipelines:
                     arguments:
                       - -c
                       - docker compose down
+                - exec:
                     command: bash
                     arguments:
                       - -c
                       - docker rm chrome firefox mvn selenium-hub
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - bash send_notification.sh "${ENV_NAME} testing" 0
+                
 
       - deploy-prod:
           environment_variables:
@@ -68,6 +80,12 @@ pipelines:
                     arguments:
                       - -c
                       - echo "Deploying on ${ENV_NAME}"
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - bash send_notification.sh "${ENV_NAME} testing" 0
+    
       - test-prod:
           environment_variables:
             ENV_NAME: prod
@@ -79,6 +97,11 @@ pipelines:
                     arguments:
                       - -c
                       - echo "Testing on ${ENV_NAME}"
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - bash send_notification.sh "${ENV_NAME} testing" 0
 
 
 
