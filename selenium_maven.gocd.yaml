@@ -29,6 +29,7 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
+                      - -c
                       - echo "Deploying on ${ENV_NAME}"
       - test-staging:
           environment_variables:
@@ -39,6 +40,7 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
+                      - -c
                       - echo "Testing on ${ENV_NAME}"
       - deploy-prod:
           environment_variables:
@@ -49,6 +51,7 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
+                      - -c
                       - echo "Deploying on ${ENV_NAME}"
       - test-prod:
           environment_variables:
@@ -59,10 +62,12 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
+                      - -c
                       - echo "Testing on ${ENV_NAME}"
                 - exec:
                     command: bash
                     arguments:
+                      - -c
                       - echo "docker compose up"
 
 
