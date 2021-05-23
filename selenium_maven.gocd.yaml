@@ -4,7 +4,7 @@ pipelines:
   selenium_tests:
     group: cicd_task_group
     lock_behaviour: unlockWhenFinished
-    label_template:
+    label_template: "$(git_selenium_tests)"
     materials:
       git_selenium_tests:
         git: https://github.com/rolandsjlociks/cicd_task.git
@@ -18,6 +18,51 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
-                      - echo "Building Maven etc"
+                      - echo "Building stuff"
+      - deploy-staging:
+          environment_variables:
+            ENV_NAME: staging
+          jobs:
+            deploy:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - echo "Deploying on ${ENV_NAME}"
+      - test-staging:
+          environment_variables:
+            ENV_NAME: staging
+          jobs:
+            deploy:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - echo "Testing on ${ENV_NAME}"
+      - deploy-prod:
+          environment_variables:
+            ENV_NAME: prod
+          jobs:
+            deploy:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - echo "Deploying on ${ENV_NAME}"
+      - test-prod:
+          environment_variables:
+            ENV_NAME: prod
+          jobs:
+            deploy:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - echo "Testing on ${ENV_NAME}"
+                - exec:
+                    command: bash
+                    arguments:
+                      - echo "docker compose up"
+
 
 
