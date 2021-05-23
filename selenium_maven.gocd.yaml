@@ -11,7 +11,7 @@ pipelines:
         branch: main 
         shallow_clone: true
         auto_update: true
-    stages:
+    stages: 
       - build:
           jobs:
             build:
@@ -19,6 +19,6 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
-                      - echo "Building Maven"
+                      - echo "Building Maven etc"
 
 
