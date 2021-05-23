@@ -65,10 +65,8 @@ pipelines:
                       - -c
                       - echo "Testing on ${ENV_NAME}"
                 - exec:
-                    command: bash
-                    arguments:
-                      - -c
-                      - echo "docker compose up"
+                    command: docker compose up
+
 
 
 
