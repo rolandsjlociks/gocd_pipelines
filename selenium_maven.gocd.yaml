@@ -35,7 +35,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - bash send_notification.sh "${ENV_NAME} deployment” 0
+                      - bash send_notification.sh "${ENV_NAME} deployment" 0
       - test-staging:
           environment_variables:
             ENV_NAME: staging
