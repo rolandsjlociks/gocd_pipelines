@@ -8,7 +8,6 @@ pipelines:
     materials:
       git_selenium_tests:
         git: https://github.com/rolandsjlociks/cicd_task.git
-        branch: main 
         shallow_clone: true
         auto_update: true
     stages: 
