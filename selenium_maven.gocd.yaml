@@ -46,7 +46,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - docker ps
+                      - docker ps -a
                 - exec:
                     command: bash
                     arguments:
