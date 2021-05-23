@@ -18,6 +18,7 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
+                      - -c
                       - echo "Building stuff"
       - deploy-staging:
           environment_variables:
