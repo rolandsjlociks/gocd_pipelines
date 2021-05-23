@@ -4,9 +4,10 @@ pipelines:
   selenium_tests:
     group: cicd_task_group
     lock_behaviour: unlockWhenFinished
+    label_template:
     materials:
       git_selenium_tests:
-        git: https://github.com/rolandsjlociks/cicd_task
+        git: https://github.com/rolandsjlociks/cicd_task.git
         branch: main 
         shallow_clone: true
         auto_update: true
@@ -14,9 +15,10 @@ pipelines:
       - build:
           jobs:
             build:
-              - exec:
-                command: bash
-                arguments:
-                  - echo "Building Maven"
+              tasks:
+                - exec:
+                  command: bash
+                  arguments:
+                    - echo "Building Maven"
 
 
